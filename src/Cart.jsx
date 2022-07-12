@@ -10,10 +10,10 @@ console.log(props.arrOfItem);
         <div class="cardContainer"> 
         <div style={{width:"100%",height:"100%",display:"flex",flexWrap:"wrap"}}>
        {
-           props.arrOfItem.map(()=>{
+           props.arrOfItem.map((val)=>{
              return(
                  <>
-                <Card dltIcon={props.dltIconAtCart}/>
+                <Card dltIcon={props.dltIconAtCart} itemObj={val}/>
                  </>
              ) 
            })

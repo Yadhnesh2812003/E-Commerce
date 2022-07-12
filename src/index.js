@@ -1,8 +1,7 @@
 import ReactDOM from 'react-dom';
-import Home from './Home';
-import './index.css';
+import App from './App.jsx'
 ReactDOM.render(
 <>
-<Home/>
+<App/>
 </>
 ,document.getElementById('root'))
