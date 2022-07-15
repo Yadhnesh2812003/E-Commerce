@@ -47,7 +47,7 @@ box-shadow: inset 1px 1px 6px black;
 }
 .sectionCards{
     /* border:2px solid blue; */
-    height: 200vh;
+    height: 100%;
     width:100vw;
     display: flex;
     flex-direction: column;
@@ -70,6 +70,7 @@ box-shadow: inset 1px 1px 6px black;
     padding:5px 12px;
     display: flex;
     overflow:hidden;
+    flex-wrap: wrap;
 }
 .card{
     border:1px solid black;

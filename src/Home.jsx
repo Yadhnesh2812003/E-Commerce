@@ -4,19 +4,28 @@ import { useState } from 'react';
 import Cart from './Cart';
 import Navbar from './Navbar';
 import ItemArr from './ItemArr';
-var itemArr=[];
 var delet=false;
 var Home=()=>{
 const [added,setAdded]=useState(false);
 const [count,setCount]=useState(0);
 const [cartDisplay,setCartDisplay]=useState(false);
-
+const [itemArr,setItemArr]=useState([]);
 var addToCart=(itemInCart)=>{
+var isItemRedundunt=itemArr.includes(itemInCart);
+if(!isItemRedundunt){
 setAdded(true);
-itemArr.push(itemInCart);
+setItemArr((prev)=>{
+return [
+...prev,
+itemInCart
+]
+})
 setCount((prev)=>{
 return ++prev;
 })
+}else{
+  alert("Item already in a cart");
+}
 }
 return(
     <>
@@ -52,7 +61,7 @@ Item Added To Cart <b>Click here to check the cart</b>
 </div>
 }
 </div>
-<Cart dis={cartDisplay} arrOfItem={itemArr} dltIconAtCart={delet}/>
+<Cart dis={cartDisplay} arrOfItem={itemArr} dltIconAtCart={delet} deleteItemFromArr={setItemArr}/>
 </>
 )
 }

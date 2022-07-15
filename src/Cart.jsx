@@ -1,8 +1,16 @@
 import Card from "./Card";
 import './index.css'
 function Cart(props){
+var dltCartItem=(idOfItem)=>{
+props.deleteItemFromArr((prev)=>{
+return (
+    prev.filter((val)=>{
+      return val.id!=idOfItem
+    })
+)
+})
+}
 if(props.dis===true){
-console.log(props.arrOfItem);
     return(
         <>
         <div class="cat">
@@ -13,7 +21,7 @@ console.log(props.arrOfItem);
            props.arrOfItem.map((val)=>{
              return(
                  <>
-                <Card dltIcon={props.dltIconAtCart} itemObj={val}/>
+                <Card dltIcon={props.dltIconAtCart} itemObj={val} deleteFun={dltCartItem}/>
                  </>
              ) 
            })
